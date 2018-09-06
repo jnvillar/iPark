@@ -13,6 +13,8 @@ class ParkingLot {
     User creator
     String picture
 
+    static belongsTo = [creator: User]
+
     static constraints = {
         location nullable: false
         space nullable: true

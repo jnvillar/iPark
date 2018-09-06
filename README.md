@@ -23,7 +23,13 @@ Get to: https://ipark-api.herokuapp.com/user
 
 ### Get:
 
+**To see user**
+
 Get to: https://ipark-api.herokuapp.com/user/${id}
+
+**To see user's parking lots**
+
+Get to: https://ipark-api.herokuapp.com/user/${id}/parkingLots
 
 ### Delete
 
@@ -58,13 +64,20 @@ example body:
 "space"       : "space"           (integer or string in millimeters)
 "description" : "description"     (string)
 "picture"     : "picture"         (string)
-"owner"       : "user_id"         (existing user id)
+"creator"     : "user_id"         (existing user id)
 }
 ```
 
 ### List:
 
 Get to: https://ipark-api.herokuapp.com/parkingLot
+
+Optional Parameters
+
+| Parameter  | Value    | Description              |
+| :---------- |:--------| :------------------------|
+| free       | true     | free parking lots        |
+
 
 ### Get:
 
@@ -78,15 +91,60 @@ Delete to: https://ipark-api.herokuapp.com/parkingLot/${id}
 
 Put to: https://ipark-api.herokuapp.com/parkingLot/${id}
 
-example body:
+example change creator:
 
 ```
 {
-"longitude"   : "new_longitude"       (string)
-"latitude"    : "new_longitude"       (string)
-"space"       : "new_space"           (integer or string in millimeters)
-"description" : "new_description"     (string)
-"picture"     : "new_picture"         (string)
-"owner"       : "new_user_id"         (existing user id)
+"creator" : "new_user_id"         (existing user id)
 }
 ```
+
+example change occupant:
+
+```
+{
+"occupant" : "new_user_id"         (existing user id)
+}
+```
+
+example change location:
+
+```
+{
+"location" : {
+    latitude : "new_latitude"   (string)
+    longitude: "new_longitude"  (string)     
+}
+
+Updates the location, should not be used but it works.
+```
+
+You can make multiple changes at once
+
+**reserve parking lot**
+
+Put to modify occupant
+
+**re-use parking lot**
+
+Put to set occupant to null and owner to driver
+
+# Login:
+
+### login
+
+Post to: https://ipark-api.herokuapp.com/login
+
+example body:
+```
+{
+"name"   : "user_name"       (string)
+"pass"   : "user_pass"      (string)
+}
+```
+
+response: 200 if validation passes, 404 otherwise
+
+### logout
+
+Post to: https://ipark-api.herokuapp.com/logout (ignores body)

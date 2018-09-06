@@ -13,7 +13,7 @@ class ParkingLotController extends RestfulController<ParkingLot> {
 
     @Override
     def index(){
-        List<ParkingLot> parkingLots = ParkingLot.findAll()
+        List<ParkingLot> parkingLots = parkingLotService.search(params)
         render parkingLots as JSON
     }
 
@@ -35,8 +35,9 @@ class ParkingLotController extends RestfulController<ParkingLot> {
         render "deleted"
     }
 
-    def reserve(){
-        parkingLotService.reserve(params)
+    def userParkingLots(){
+        List<ParkingLot> parkingLots = parkingLotService.getUserParkingLots(params.userId as Long)
+        render parkingLots as JSON
     }
 
     def showResponse(ParkingLot parkingLot){

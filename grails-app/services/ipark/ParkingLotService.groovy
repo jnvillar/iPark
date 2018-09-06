@@ -6,12 +6,8 @@ class ParkingLotService {
 
     def create(Map params) {
         ParkingLot parkingLot = new ParkingLot(params)
-        User creator = userService.get(params.creator as Long)
         Location location = locationService.create(params)
-
-        parkingLot.creator = creator
         parkingLot.location = location
-
         parkingLot.save(flush:true)
         parkingLot
     }
@@ -24,11 +20,13 @@ class ParkingLotService {
         get(id).delete(flush: true, failOnError: true)
     }
 
-    def reserve(Map params){
-        User occupant = userService.get(params.occupant as Long)
-        ParkingLot parkingLot = get(params.parkingLot as Long)
+    def search(Map params){
+        if(params.free == "true") return ParkingLot.findAllByOccupant(null)
+        ParkingLot.findAll()
+    }
 
-        parkingLot.occupant = occupant
-        parkingLot.save(flush:true, failOnError:true)
+    def getUserParkingLots(Long userId){
+        User creator = userService.get(userId)
+        ParkingLot.findAllByCreator(creator)
     }
 }
