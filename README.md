@@ -1,6 +1,12 @@
 # iPark
 [https://ipark-api.herokuapp.com/](https://ipark-api.herokuapp.com/)
 
+iPark it's a restApi wich objective is to manage free parking lots on the street. iPark accomplish such task allowing users to upload free parking lots and then showing them to the drivers using the app.
+
+If a driver decides to occupy a parking lot, it must pay a tinny amount to the user that uploaded such parking lot.
+
+When the driver leaves the parking lot, it has the opportunity to recover it's payment by uploading the now free parking lot.
+
 # User:
 
 ###  Create:
