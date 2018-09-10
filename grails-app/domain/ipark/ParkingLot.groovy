@@ -9,32 +9,42 @@ class ParkingLot {
     Date createdAt = new Date()
     Long space
     String description
-    User occupant
     User creator
     String picture
+    boolean parkingMeter = false
 
     static belongsTo = [creator: User]
+    static hasOne = [reservation: Reservation]
 
     static constraints = {
         location nullable: false
         space nullable: true
         description nullable: false, blank: false
-        occupant nullable: true
         creator nullable: false
         picture nullable: true
+        reservation nullable: true
     }
 
     static marshaller = { ParkingLot parkingLot ->
 
         return [
-                "id"         : parkingLot.id,
-                "creator"    : parkingLot.creator,
-                "occupant"   : parkingLot.occupant,
-                "location"   : parkingLot.location,
-                "picture"    : parkingLot.picture,
-                "space"      : parkingLot.space,
-                "description": parkingLot.description,
-                "createdAt"  : parkingLot.createdAt
+                "id"          : parkingLot.id,
+                "creator"     : parkingLot.creator,
+                "location"    : parkingLot.location,
+                "picture"     : parkingLot.picture,
+                "space"       : parkingLot.space,
+                "description" : parkingLot.description,
+                "parkingMeter": parkingLot.parkingMeter,
+                "createdAt"   : parkingLot.createdAt,
+                "reservation" : parkingLot.reservation ? [
+                        "id"       : parkingLot.reservation.id,
+                        "occupant" : [
+                                "id"  : parkingLot.reservation.occupant.id,
+                                "name": parkingLot.reservation.occupant.name
+                        ],
+                        "createdAt": parkingLot.reservation.createdAt,
+                        "minutes"  : parkingLot.reservation.minutes,
+                ] : null
         ]
     }
 }

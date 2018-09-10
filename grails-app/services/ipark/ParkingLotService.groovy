@@ -21,7 +21,7 @@ class ParkingLotService {
     }
 
     def search(Map params){
-        if(params.free == "true") return ParkingLot.findAllByOccupant(null)
+        if(params.free == "true") return ParkingLot.findAllByReservation(null)
         ParkingLot.findAll()
     }
 

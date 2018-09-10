@@ -31,6 +31,10 @@ Get to: https://ipark-api.herokuapp.com/user/${id}
 
 Get to: https://ipark-api.herokuapp.com/user/${id}/parkingLots
 
+**To see user's parking lots reservations**
+
+Get to: https://ipark-api.herokuapp.com/user/${id}/reservations
+
 ### Delete
 
 Delete to: https://ipark-api.herokuapp.com/user/${id}
@@ -65,6 +69,7 @@ example body:
 "description" : "description"     (string)
 "picture"     : "picture"         (string)
 "creator"     : "user_id"         (existing user id)
+"parkingMeter": "true/false"      (boolean)
 }
 ```
 
@@ -99,14 +104,6 @@ example change creator:
 }
 ```
 
-example change occupant:
-
-```
-{
-"occupant" : "new_user_id"         (existing user id)
-}
-```
-
 example change location:
 
 ```
@@ -115,19 +112,53 @@ example change location:
     latitude : "new_latitude"   (string)
     longitude: "new_longitude"  (string)     
 }
-
-Updates the location, should not be used but it works.
 ```
 
 You can make multiple changes at once
 
-**reserve parking lot**
-
-Put to modify occupant
-
 **re-use parking lot**
 
 Put to set occupant to null and owner to driver
+
+### Reservations
+
+###  Create:
+
+Post to: https://ipark-api.herokuapp.com/reservation
+
+example body:
+
+```
+{
+"occupant"  : "user_id",          (existing_user_id)
+"parkingLot": "parling_lot_id",   (existing_parking_lot_id)
+"minutes"   : "minutes"           (user_estimation)
+}
+```
+
+###  List:
+
+Get to: https://ipark-api.herokuapp.com/reservation
+
+###  GET:
+
+Get to: https://ipark-api.herokuapp.com/reservation/${id}
+
+### Update 
+
+Post to https://ipark-api.herokuapp.com/reservation/${id}
+
+example body:
+
+```
+{
+"minutes"   : "new_minutes"           (user_estimation)
+}
+```
+
+### Delete 
+
+Delete to https://ipark-api.herokuapp.com/reservation/${id}
 
 # Login:
 

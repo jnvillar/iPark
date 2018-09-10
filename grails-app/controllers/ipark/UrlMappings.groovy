@@ -12,6 +12,12 @@ class UrlMappings {
         group("/user") {
             "/"(resource: 'user')
             "/$userId/parkingLots"(controller: 'parkingLot', action: 'userParkingLots')
+            "/$userId/reservations"(controller: 'reservation', action: 'userReservations')
+        }
+
+        group("/reservation") {
+            "/"(controller: 'reservation') { action = [POST: "save"] }
+            "/${id}"(resource: 'reservation')
         }
 
         "/"(controller: 'index', action: [GET: 'index'])
