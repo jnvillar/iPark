@@ -11,7 +11,7 @@ When the driver leaves the parking lot, he has the opportunity to recover his pa
 
 ###  Create:
 
-Post to: https://ipark-api.herokuapp.com/userRest
+Post to: https://ipark-api.herokuapp.com/users
 
 example body:
 
@@ -25,29 +25,29 @@ example body:
 
 ### List:
 
-Get to: https://ipark-api.herokuapp.com/userRest
+Get to: https://ipark-api.herokuapp.com/users
 
 ### Get:
 
 **To see userRest**
 
-Get to: https://ipark-api.herokuapp.com/userRest/${id}
+Get to: https://ipark-api.herokuapp.com/users/${id}
 
 **To see userRest's parking lots**
 
-Get to: https://ipark-api.herokuapp.com/userRest/${id}/parkingLots
+Get to: https://ipark-api.herokuapp.com/users/${id}/parkingLots
 
 **To see userRest's parking lots reservations**
 
-Get to: https://ipark-api.herokuapp.com/userRest/${id}/reservations
+Get to: https://ipark-api.herokuapp.com/users/${id}/reservations
 
 ### Delete
 
-Delete to: https://ipark-api.herokuapp.com/userRest/${id}
+Delete to: https://ipark-api.herokuapp.com/users/${id}
 
 ### Update
 
-Put to: https://ipark-api.herokuapp.com/userRest/${id}
+Put to: https://ipark-api.herokuapp.com/users/${id}
 
 example body:
 
@@ -63,7 +63,7 @@ example body:
 
 ###  Create:
 
-Post to: https://ipark-api.herokuapp.com/parkingLotRest
+Post to: https://ipark-api.herokuapp.com/parkingLots
 
 example body:
 
@@ -81,7 +81,7 @@ example body:
 
 ### List:
 
-Get to: https://ipark-api.herokuapp.com/parkingLotRest
+Get to: https://ipark-api.herokuapp.com/parkingLots
 
 Optional Parameters
 
@@ -92,15 +92,15 @@ Optional Parameters
 
 ### Get:
 
-Get to: https://ipark-api.herokuapp.com/parkingLotRest/${id}
+Get to: https://ipark-api.herokuapp.com/parkingLots/${id}
 
 ### Delete
 
-Delete to: https://ipark-api.herokuapp.com/parkingLotRest/${id}
+Delete to: https://ipark-api.herokuapp.com/parkingLots/${id}
 
 ### Update
 
-Put to: https://ipark-api.herokuapp.com/parkingLotRest/${id}
+Put to: https://ipark-api.herokuapp.com/parkingLots/${id}
 
 example change creator:
 
@@ -126,7 +126,7 @@ You can make multiple changes at once
 
 Put to set occupant to null and owner to driver
 
-### Reservations
+# Reservations
 
 ###  Create:
 
@@ -144,15 +144,15 @@ example body:
 
 ###  List:
 
-Get to: https://ipark-api.herokuapp.com/reservationRest
+Get to: https://ipark-api.herokuapp.com/reservations
 
 ###  GET:
 
-Get to: https://ipark-api.herokuapp.com/reservationRest/${id}
+Get to: https://ipark-api.herokuapp.com/reservations/${id}
 
 ### Update 
 
-Post to https://ipark-api.herokuapp.com/reservationRest/${id}
+Post to https://ipark-api.herokuapp.com/reservations/${id}
 
 example body:
 
@@ -164,7 +164,7 @@ example body:
 
 ### Delete 
 
-Delete to https://ipark-api.herokuapp.com/reservationRest/${id}
+Delete to https://ipark-api.herokuapp.com/reservations/${id}
 
 # Login:
 
@@ -173,6 +173,7 @@ Delete to https://ipark-api.herokuapp.com/reservationRest/${id}
 Post to: https://ipark-api.herokuapp.com/login
 
 example body:
+
 ```
 {
 "name"   : "user_name"       (string)
