@@ -1,5 +1,7 @@
 package ipark
 
+import Validators.ParkingLotValidator
+
 class ParkingLotService {
     LocationService locationService
     UserService userService
@@ -16,8 +18,8 @@ class ParkingLotService {
         ParkingLot.findById(id)
     }
 
-    def delete(Long id){
-        get(id).delete(flush: true, failOnError: true)
+    def delete(ParkingLot parkingLot){
+        parkingLot.delete(flush: true, failOnError: true)
     }
 
     def search(Map params){

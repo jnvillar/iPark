@@ -10,7 +10,7 @@ class LoginController {
         render(status: status)
     }
 
-    def logOut(){
+    def logOut() {
         session.user = null
     }
 }

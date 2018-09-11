@@ -1,8 +1,10 @@
 package ipark
 
 import grails.rest.Resource
+import groovy.transform.EqualsAndHashCode
 
-@Resource(uri = '/user', formats = ['json'])
+@Resource(uri = '/users', superClass = UserRestController, formats = ['json'])
+@EqualsAndHashCode(includes = 'id,name')
 class User {
 
     String name

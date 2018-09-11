@@ -3,7 +3,7 @@ package ipark
 import grails.testing.web.interceptor.InterceptorUnitTest
 import spock.lang.Specification
 
-class ParkingLotInterceptorSpec extends Specification implements InterceptorUnitTest<ParkingLotInterceptor> {
+class UserRestInterceptorSpec extends Specification implements InterceptorUnitTest<UserRestInterceptor> {
 
     def setup() {
     }
@@ -12,9 +12,9 @@ class ParkingLotInterceptorSpec extends Specification implements InterceptorUnit
 
     }
 
-    void "Test parkingLot interceptor matching"() {
+    void "Test user interceptor matching"() {
         when:"A request matches the interceptor"
-            withRequest(controller:"parkingLot")
+            withRequest(controller:"userRest")
 
         then:"The interceptor does match"
             interceptor.doesMatch()

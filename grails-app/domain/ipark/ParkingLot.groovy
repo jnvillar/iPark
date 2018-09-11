@@ -2,7 +2,7 @@ package ipark
 
 import grails.rest.*
 
-@Resource(uri = '/parkingLot', formats = ['json'])
+@Resource(uri = '/parkingLots', formats = ['json'], superClass = ParkingLotRestController)
 class ParkingLot {
 
     Location location

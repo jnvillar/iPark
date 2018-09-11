@@ -3,7 +3,7 @@ package ipark
 import grails.testing.web.controllers.ControllerUnitTest
 import spock.lang.Specification
 
-class ParkingLotControllerSpec extends Specification implements ControllerUnitTest<ParkingLotController> {
+class ParkingLotRestControllerSpec extends Specification implements ControllerUnitTest<ParkingLotRestController> {
 
     def setup() {
     }

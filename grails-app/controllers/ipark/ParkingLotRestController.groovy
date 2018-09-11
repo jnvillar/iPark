@@ -1,18 +1,22 @@
 package ipark
 
+import Validators.ParkingLotValidator
 import grails.converters.JSON
-import grails.rest.RestfulController
 
-class ParkingLotController extends RestfulController<ParkingLot> {
+class ParkingLotRestController<T> extends BaseController<T> {
     static responseFormats = ['json']
     ParkingLotService parkingLotService
 
-    ParkingLotController() {
-        super(ParkingLot)
+    ParkingLotRestController(Class<T> domainClass) {
+        this(domainClass, false)
+    }
+
+    ParkingLotRestController(Class<T> domainClass, boolean readOnly) {
+        super(domainClass, readOnly)
     }
 
     @Override
-    def index(){
+    def index() {
         List<ParkingLot> parkingLots = parkingLotService.search(params)
         render parkingLots as JSON
     }
@@ -24,24 +28,19 @@ class ParkingLotController extends RestfulController<ParkingLot> {
     }
 
     @Override
-    def show(){
-        ParkingLot parkingLot = parkingLotService.get(params.id as Long)
-        render parkingLot as JSON
+    def update() {
+        ParkingLotValidator.isOwner(session)
+        super.update()
     }
 
     @Override
-    def delete(){
-        parkingLotService.delete(params.id as Long)
-        render "deleted"
+    def delete() {
+        ParkingLotValidator.isOwner(session)
+        super.delete()
     }
 
-    def userParkingLots(){
+    def userParkingLots() {
         List<ParkingLot> parkingLots = parkingLotService.getUserParkingLots(params.userId as Long)
         render parkingLots as JSON
-    }
-
-    def showResponse(ParkingLot parkingLot){
-        def response = parkingLot.hasErrors() ? parkingLot.errors : parkingLot
-        render response as JSON
     }
 }

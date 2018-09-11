@@ -2,7 +2,7 @@ package ipark
 
 import grails.rest.Resource
 
-@Resource(uri = '/reservation', formats = ['json'])
+@Resource(uri = '/reservations', formats = ['json'], superClass = ReservationRestController)
 class Reservation {
 
     User occupant
@@ -13,7 +13,7 @@ class Reservation {
 
     static constraints = {
         occupant nullable: false, validator: { value, domain -> domain.parkingLot.creator != value }
-        parkingLot nullable: false, validator: { value, domain -> value.reservation == null }
+        parkingLot nullable: false
     }
 
     static marshaller = { Reservation reservation ->

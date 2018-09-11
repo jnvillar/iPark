@@ -4,26 +4,16 @@ class UrlMappings {
 
     static mappings = {
 
-        group("/parkingLot") {
-            "/"(controller: 'parkingLot') { action = [POST: "save", GET: "index"] }
-            "/$id"(controller: 'parkingLot', resource: 'parkingLot') { action = [PUT: "update"] }
+        group("/users") {
+            "/$userId/parkingLots"(controller: "parkingLot", action: "userParkingLots")
+            "/$userId/reservations"(controller: "reservation", action: "userReservations")
         }
 
-        group("/user") {
-            "/"(resource: 'user')
-            "/$userId/parkingLots"(controller: 'parkingLot', action: 'userParkingLots')
-            "/$userId/reservations"(controller: 'reservation', action: 'userReservations')
-        }
+        "/login"(controller: "login", action: [POST: "login"])
+        "/logout"(controller: "login", action: [POST: "logOut"])
 
-        group("/reservation") {
-            "/"(controller: 'reservation') { action = [POST: "save"] }
-            "/${id}"(resource: 'reservation')
-        }
-
-        "/"(controller: 'index', action: [GET: 'index'])
-        "/login"(controller: 'login', action: [POST: 'login'])
-        "/logout"(controller: 'login', action: [POST: 'logout'])
-        "/json"(controller: 'index', action: 'updateMarshallers')
+        "/"(controller: "index", action: [GET: "index"])
+        "/json"(controller: "index", action: "updateMarshallers")
 
         "500"(view: '/error')
         "404"(view: '/notFound')

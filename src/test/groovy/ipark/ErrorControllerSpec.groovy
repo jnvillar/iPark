@@ -3,7 +3,7 @@ package ipark
 import grails.testing.web.controllers.ControllerUnitTest
 import spock.lang.Specification
 
-class ReservationControllerSpec extends Specification implements ControllerUnitTest<ReservationController> {
+class ErrorControllerSpec extends Specification implements ControllerUnitTest<ErrorController> {
 
     def setup() {
     }
