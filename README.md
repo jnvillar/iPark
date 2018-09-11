@@ -7,6 +7,10 @@ If a driver decides to occupy a parking lot, he must pay a tinny amount to the u
 
 When the driver leaves the parking lot, he has the opportunity to recover his payment by uploading the now free parking lot.
 
+
+(* you need to be logged)
+(# you need to be logged as the creator of the object)
+
 # User:
 
 ###  Create:
@@ -31,23 +35,23 @@ Get to: https://ipark-api.herokuapp.com/users
 
 **To see userRest**
 
-Get to: https://ipark-api.herokuapp.com/users/${id}
+Get to: https://ipark-api.herokuapp.com/users/${id} 
 
 **To see userRest's parking lots**
 
-Get to: https://ipark-api.herokuapp.com/users/${id}/parkingLots
+Get to: https://ipark-api.herokuapp.com/users/${id}/parkingLots (#)
 
 **To see userRest's parking lots reservations**
 
-Get to: https://ipark-api.herokuapp.com/users/${id}/reservations
+Get to: https://ipark-api.herokuapp.com/users/${id}/reservations (#)
 
 ### Delete
 
-Delete to: https://ipark-api.herokuapp.com/users/${id}
+Delete to: https://ipark-api.herokuapp.com/users/${id} (#)
 
 ### Update
 
-Put to: https://ipark-api.herokuapp.com/users/${id}
+Put to: https://ipark-api.herokuapp.com/users/${id} (#)
 
 example body:
 
@@ -63,7 +67,7 @@ example body:
 
 ###  Create:
 
-Post to: https://ipark-api.herokuapp.com/parkingLots
+Post to: https://ipark-api.herokuapp.com/parkingLots (*)
 
 example body:
 
@@ -96,11 +100,11 @@ Get to: https://ipark-api.herokuapp.com/parkingLots/${id}
 
 ### Delete
 
-Delete to: https://ipark-api.herokuapp.com/parkingLots/${id}
+Delete to: https://ipark-api.herokuapp.com/parkingLots/${id}  (#)
 
 ### Update
 
-Put to: https://ipark-api.herokuapp.com/parkingLots/${id}
+Put to: https://ipark-api.herokuapp.com/parkingLots/${id} (#)
 
 example change creator:
 
@@ -130,7 +134,7 @@ Put to set occupant to null and owner to driver
 
 ###  Create:
 
-Post to: https://ipark-api.herokuapp.com/reservationRest
+Post to: https://ipark-api.herokuapp.com/reservations (*)
 
 example body:
 
@@ -144,15 +148,15 @@ example body:
 
 ###  List:
 
-Get to: https://ipark-api.herokuapp.com/reservations
+Get to: https://ipark-api.herokuapp.com/reservations (*)
 
 ###  GET:
 
-Get to: https://ipark-api.herokuapp.com/reservations/${id}
+Get to: https://ipark-api.herokuapp.com/reservations/${id} (#)
 
 ### Update 
 
-Post to https://ipark-api.herokuapp.com/reservations/${id}
+Post to https://ipark-api.herokuapp.com/reservations/${id} (#)
 
 example body:
 
@@ -164,7 +168,7 @@ example body:
 
 ### Delete 
 
-Delete to https://ipark-api.herokuapp.com/reservations/${id}
+Delete to https://ipark-api.herokuapp.com/reservations/${id} (#)
 
 # Login:
 
